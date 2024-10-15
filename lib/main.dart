@@ -9,8 +9,6 @@ void main() {
 class Sandbox extends StatelessWidget {
   const Sandbox({super.key});
 
-  // testing
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
