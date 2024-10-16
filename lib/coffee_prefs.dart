@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:coffee_card/styled_body_text.dart';
+import 'package:coffee_card/styled_button.dart';
+
 class CoffeePrefs extends StatefulWidget {
   const CoffeePrefs({super.key});
 
@@ -29,7 +32,7 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
       children: [
         Row(
           children: [
-            const Text("Strength: "),
+            const StyledBodyText("Strength: "),
             for (int i = 0; i < strength; i++)
               Image.asset(
                 "assets/img/coffee_bean.png",
@@ -38,18 +41,13 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
                 colorBlendMode: BlendMode.multiply,
               ),
             const Expanded(child: SizedBox()),
-            FilledButton(
-                style: FilledButton.styleFrom(
-                    backgroundColor: Colors.brown,
-                    foregroundColor: Colors.white),
-                onPressed: increaseStrength,
-                child: const Text("+"))
+            StyledButton(onPressed: increaseStrength, child: const Text("+"))
           ],
         ),
         Row(
           children: [
-            const Text("Sugars: "),
-            if (sugars == 0) const Text("No sugars..."),
+            const StyledBodyText("Sugars: "),
+            if (sugars == 0) const StyledBodyText("No sugars..."),
             for (int i = 0; i < sugars; i++)
               Image.asset(
                 "assets/img/sugar_cube.png",
@@ -58,12 +56,7 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
                 colorBlendMode: BlendMode.multiply,
               ),
             const Expanded(child: SizedBox()),
-            FilledButton(
-                style: FilledButton.styleFrom(
-                    backgroundColor: Colors.brown,
-                    foregroundColor: Colors.white),
-                onPressed: increaseSugars,
-                child: const Text("+"))
+            StyledButton(onPressed: increaseSugars, child: const Text("+"))
           ],
         )
       ],
